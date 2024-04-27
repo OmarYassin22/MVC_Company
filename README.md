@@ -33,5 +33,5 @@ In our **MVC-based employee management system**, we've designed a robust solutio
 Our MVC architecture promotes separation of concerns, making the system maintainable, scalable, and adaptable to future enhancements. Employees can confidently create accounts and access their personalized dashboards, contributing to a streamlined HR process. 🚀
 
 ---
-For online perview --> http://mvc-company.runasp.net/
+For online preview --> http://mvc-company.runasp.net/
 
