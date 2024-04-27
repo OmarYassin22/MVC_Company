@@ -1,0 +1,93 @@
+﻿@model IEnumerable<EmployeeView>
+@{
+    ViewData["Title"] = "Index";
+}
+@if (TempData["Created"] !=null)
+{
+    <p class="alert alert-success"> @TempData["Created"]</p>
+}
+@if (TempData["Updated"] != null)
+{
+    <p class="alert alert-info"> @TempData["Updated"]</p>
+}
+
+<h1>Index  
+</h1>
+
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-8">
+            @if (ViewData["Name"] is not null)
+            {
+                <input type="text" class="form-control" name="Name"  value="@ViewData["Name"]"/>
+
+            }
+            else
+            {
+                
+            <input type="text" class="form-control" name="Name" id="Name"  />
+            }
+        </div>
+        <div class="col-4">
+            <input type="submit" value="Search" class="btn btn-success" />
+
+
+        </div>
+
+    </div>
+
+</form>
+
+<a class="btn btn-primary w-25 m-5" asp-action="Create">Create</a>
+@if (Model.Count() == 0)
+{
+
+    <p class="alert alert-warning"> No Employee</p>
+}
+else
+{
+    <table class="table d-sm-table-cell table-hover w-100">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(d => d.Image) </th>
+                <th> @Html.DisplayNameFor(d => d.Id) </th>
+                <th> @Html.DisplayNameFor(d => d.Name) </th>
+                <th> @Html.DisplayNameFor(d => d.Address) </th>
+                <th> @Html.DisplayNameFor(d => d.Phone) </th>
+                <th> @Html.DisplayNameFor(d => d.Age) </th>
+                <th> @Html.DisplayNameFor(d => d.Email) </th>
+                <th> @Html.DisplayNameFor(d => d.HireDate) </th>
+                <th> @Html.DisplayNameFor(d => d.Salary) </th>
+                <th> @Html.DisplayNameFor(d => d.Active) </th>
+                <th> @Html.DisplayNameFor(d => d.department) </th>
+                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Reverse())
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@item.ImageName" width="75" height="50" class="rounded-circle"/></td>
+                    <th> @item.Id</th>
+                    <th> @item.Name</th>
+                    <th> @item.Address</th>
+                    <th> @item.Phone</th>
+                    <th> @item.Age</th>
+                    <th> @item.Email</th>
+                    <th> @item.HireDate</th>
+                    <th> @item.Salary</th>
+                    <th> @item.Active</th>
+                    <th>
+                        @item.department.Name
+                    </th>
+                    <partial name="PartialButtons" model="@item.Id.ToString()">
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}

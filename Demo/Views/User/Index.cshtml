@@ -1,0 +1,74 @@
+﻿@model IEnumerable< UserViewModel>
+@{
+    TempData["Title"] = "index";
+    var m = Model;
+}
+
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-8">
+            @if (ViewData["search"] is not null)
+            {
+                <input type="text" class="form-control" name="search" value="@ViewData["search"]" />
+
+            }
+            else
+            {
+
+                <input type="text" class="form-control" name="search" id="search" />
+            }
+        </div>
+        <div class="col-4">
+            <input type="submit" value="Search" class="btn btn-success" />
+
+
+        </div>
+
+    </div>
+
+</form>
+
+@if (Model.Count() == 0)
+{
+
+    <p class="alert alert-warning"> No users</p>
+}
+else
+{
+    <table class="table d-sm-table-cell table-hover w-100">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(d => d.Image) </th>
+                <th> @Html.DisplayNameFor(d => d.Id) </th>
+                <th> @Html.DisplayNameFor(d => d.Email) </th>
+                <th> @Html.DisplayNameFor(d => d.UserName) </th>
+                <th> @Html.DisplayNameFor(d => d.Roles)</th>
+        
+                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Reverse())
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@item.ImageUrl" width="75" height="50" class="rounded-circle" />
+                    </td>
+                    <th> @item.Id</th>
+                    <th> @item.Email</th>
+                    <th> @item.UserName</th>
+                    <th> @foreach (var role in item.Roles)
+                        {
+                         @role<br>
+                        }</th>
+                  
+                    <partial name="PartialButtons" model="@item.Id">
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}

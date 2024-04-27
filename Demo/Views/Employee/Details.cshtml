@@ -1,0 +1,12 @@
+﻿@model EmployeeView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<partial name="PartialViews/Delete_Details" />
+<div>
+    <a asp-action="Update" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

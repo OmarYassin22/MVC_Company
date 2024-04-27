@@ -1,0 +1,14 @@
+﻿@model DepartmentView
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<form asp-controller="Department" asp-action="Delete">
+    <partial name="PartialViews/PartialCreateDetails">
+        <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-primary" />
+        <a asp-action="Index">Bact To List</a>
+    </div>
+</form>

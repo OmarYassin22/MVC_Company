@@ -1,0 +1,33 @@
+﻿@model Department
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h5>Department</h5>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-controller="Department" asp-action="Create">
+            <partial name="PartialViews/_PartialForm" model="@Model">
+                <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Validation{
+    <partial name="_ValidationScriptsPartial" />
+
+
+    @* <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script> *@
+}

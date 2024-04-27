@@ -1,0 +1,23 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+<form asp-controller="Department" asp-action="Update">
+    <partial name="PartialViews/_PartialForm" model="Model">
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-primary" asp-action="Index">  Back To List</a>
+    </div>
+</form>
+
+
+@section Validation {
+    <partial name="_ValidationScriptsPartial" />
+@* 
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script><script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script> *@
+}

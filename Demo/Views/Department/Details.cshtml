@@ -1,0 +1,16 @@
+﻿@model DepartmentView
+
+@{
+    ViewData["Title"] = "Get";
+}
+
+<h1>Get</h1>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+
+    <partial name="PartialViews/PartialCreateDetails">
+
+<a asp-action="Update" asp-route-id="@Model.Id">Edit</a>
+</div>
